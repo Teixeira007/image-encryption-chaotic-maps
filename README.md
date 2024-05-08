@@ -10,7 +10,7 @@ Gerador de números aleatórios e pseudo-aleatórios para aplicações criptogr�
 Clone este repositório em sua máquina local usando o seguinte comando:
 
 ```bash
-git clone https://github.com/seu_usuario/seu_projeto.git
+git clone https://github.com/Teixeira007/BEACH
 ```
 2. Instalar Dependências
 Antes de executar o projeto, é necessário instalar as dependências. Certifique-se de ter o Python e o pip instalados em sua máquina. Em seguida, execute o seguinte comando:
