@@ -1,0 +1,40 @@
+Test Data File:C:/Users/teixe/Documents/BEACH/numeros_binarios_v0.txt
+
+Type of Test                                      	P-Value             	Conclusion
+01. Frequency (Monobit) Test                      	0.0                 	Non-Random
+02. Frequency Test within a Block                 	0.0                 	Non-Random
+03. Runs Test                                     	0.0                 	Non-Random
+04. Test for the Longest Run of Ones in a Block   	0.0                 	Non-Random
+05. Binary Matrix Rank Test                       	6.392939583407115e-36	Non-Random
+06. Discrete Fourier Transform (Spectral) Test    	4.2566603610631315e-221	Non-Random
+07. Non-overlapping Template Matching Test        	0.8755419499639158  	Random
+08. Overlapping Template Matching Test            	3.76989488849579e-08	Non-Random
+09. Maurer's "Universal Statistical" Test         	-1.0                	Non-Random
+10. Linear Complexity Test                        	0.16754727792008967 	Random
+11. Serial Test:
+													0.0                 	Non-Random
+													0.0                 	Non-Random
+12. Approximate Entropy Test                      	0.0                 	Non-Random
+13. Cumulative Sums Test (Forward)                	1.0                 	Random
+14. Cumulative Sums Test (Backward)               	1.0                 	Random
+15. Random Excursions Test:
+				State     	Chi Squared         	P-Value             	Conclusion
+				-4        	35.14285714285714   	1.409033960771258e-06	Non-Random
+				-3        	16.599999999999998  	0.005324337409375595	Non-Random
+				-2        	30.0                	1.4748581038443073e-05	Non-Random
+				-1        	4.0                 	0.5494159513527803  	Random
+				+1        	2.0                 	0.8491450360846096  	Random
+				+2        	0.6666666666666666  	0.984747879018509   	Random
+				+3        	0.4                 	0.9953295932358704  	Random
+				+4        	0.2857142857142857  	0.9979031595107858  	Random
+16. Random Excursions Variant Test:
+				State     	COUNTS              	P-Value             	Conclusion
+				-9.0      	3                   	0.9034789137192296  	Random
+				-8.0      	2                   	1.0                 	Random
+				-7.0      	1                   	0.8897069355331012  	Random
+				-6.0      	2                   	1.0                 	Random
+				-5.0      	3                   	0.8676323347781927  	Random
+				-4.0      	2                   	1.0                 	Random
+				-3.0      	1                   	0.8230632737581215  	Random
+				-2.0      	2                   	1.0                 	Random
+				-1.0      	3                   	0.6170750774519739  	Random
