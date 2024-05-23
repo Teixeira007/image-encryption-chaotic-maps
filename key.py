@@ -33,10 +33,3 @@ def decrypt_numbers(encrypted_data, key):
     decrypted = unpadder.update(decrypted_padded) + unpadder.finalize()
     return deserialize_numbers(decrypted.decode())
 
-
-# encrypted_data, key = encrypt_numbers()
-# print("Encrypted:", encrypted_data)
-
-
-# decrypted_numbers = decrypt_numbers(encrypted_data, key)
-# print("Decrypted:", decrypted_numbers)

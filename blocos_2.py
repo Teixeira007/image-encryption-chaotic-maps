@@ -28,11 +28,6 @@ def dividir_em_blocos(imagem):
 def criar_bloco_auxiliar(dimensao, semente):
     # Definir a semente para a geração de números aleatórios
     np.random.seed(semente)
-    # height, width, channels = image.shape
-
-    # # Create XOR array with the same shape as the right block
-    # xor_array = np.random.randint(0, 256, (height, width // 2, channels), dtype=np.uint8)
-    # Criar um bloco auxiliar com dimensão especificada
     bloco_auxiliar = np.random.randint(0, 256, size=dimensao, dtype=np.uint8)  # Valores aleatórios entre 0 e 255
     return bloco_auxiliar
 
@@ -52,13 +47,13 @@ def l_r(left_block, right_block, aux, random_numbers_X, random_numbers_B, lista_
     return processed_image, lista_linhas, lista_colunas
 
 def l_r_reverse(left_block, right_block, aux, random_numbers_X, random_numbers_B, linhas, colunas):
-            left_block  = xor_de_bloco(left_block, aux)
-            right_block = function_f.decript(right_block, random_numbers_X, random_numbers_B, linhas, colunas)
-            processed_image = np.hstack((right_block, left_block))
-            return processed_image
+    left_block  = xor_de_bloco(left_block, aux)
+    right_block = function_f.decript(right_block, random_numbers_X, random_numbers_B, linhas, colunas)
+    processed_image = np.hstack((right_block, left_block))
+    return processed_image
 
 
-def main(imagem, key, key__):# Carregar a imagem
+def main(imagem, key, key__):
 
     key = k.decrypt_numbers(key, key__)
     # Dividir a imagem em blocos
@@ -77,10 +72,7 @@ def main(imagem, key, key__):# Carregar a imagem
     
     for i in range (7):
         left_block, right_block  = dividir_em_blocos(l_next)
-
         l_next, linhas, colunas = l_r(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], lista_linhas, lista_colunas, key[5], key[6])
-
-
 
     return l_next, linhas, colunas
         
@@ -112,7 +104,6 @@ def decrypt(imagem, lista_linhas, lista_colunas, key, key__):
 
     for i in range(7):
         left_block, right_block  = dividir_em_blocos(l_next)
-
         l_next = l_r_reverse(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], lista_linhas[i], lista_colunas[i])
 
     return l_next
@@ -120,11 +111,8 @@ def decrypt(imagem, lista_linhas, lista_colunas, key, key__):
 if __name__ == "__main__":
     imagem = cv2.imread('lena.png')
     image_, linhas, colunas = main(imagem)
-
-    
     plt.imshow(image_)
     plt.show()
-
     image__ = decrypt(image_, linhas, colunas)
     plt.imshow(image__)
     plt.show()

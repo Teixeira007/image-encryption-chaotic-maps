@@ -47,27 +47,22 @@ def main(X0, B0, size):
     for i in range(size):
         
         num = 50
-        # X0 = np.random.rand()
-        # B0 = np.random.rand()
-        # while B0 == 0 or B0 == 0.75 or B0 == 1:
-        #         B0 = np.random.rand()
-            
         X0, B0 = generate_sequence(X0, B0, num)
         list.append(int(X0 * pow(2,56)) % 256)
 
-    binary_list  = decimal_to_binary_list(list)
-    write_binary_list_to_file(binary_list, 'numeros_binarios.txt')
+    # binary_list  = decimal_to_binary_list(list)
+    # write_binary_list_to_file(binary_list, 'numeros_binarios.txt')
     return list
 
-def decimal_to_binary_list(decimal_numbers):
-    # Convert each decimal number to binary using bin() function
-    binary_list = [bin(num)[2:] for num in decimal_numbers]
-    return binary_list
+# def decimal_to_binary_list(decimal_numbers):
+#     # Convert each decimal number to binary using bin() function
+#     binary_list = [bin(num)[2:] for num in decimal_numbers]
+#     return binary_list
 
-def write_binary_list_to_file(binary_list, filename):
-    with open(filename, "w") as file:
-        for binary_str in binary_list:
-            file.write(binary_str + "\n")
+# def write_binary_list_to_file(binary_list, filename):
+#     with open(filename, "w") as file:
+#         for binary_str in binary_list:
+#             file.write(binary_str + "\n")
 
 def keygen(x, r, size):
     key = []
