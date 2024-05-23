@@ -9,3 +9,4 @@
 /inspectionProfiles/
 *xml
 *iml
+__pycache__
