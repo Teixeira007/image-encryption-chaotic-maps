@@ -5,7 +5,7 @@ import beach
 import cubo_rubik
 
 
-def main(bloco, random_X, random_B):
+def main(bloco, random_X, random_B, k5, k6):
 
     height = bloco.shape[0]
     width = bloco.shape[1]
@@ -17,7 +17,7 @@ def main(bloco, random_X, random_B):
             enimg[i, j] = bloco[i, j]^list_beach[z]
             z+=1
 
-    enimg, linhas_permutadas_inversas, colunas_permutadas_inversas = cubo_rubik.imagem_permutada(enimg, 53, 8372)
+    enimg, linhas_permutadas_inversas, colunas_permutadas_inversas = cubo_rubik.imagem_permutada(enimg, k5, k6)
     # lista_linhas.append(linhas_permutadas_inversas)
     # lista_colunas.append(colunas_permutadas_inversas)
     return enimg, linhas_permutadas_inversas, colunas_permutadas_inversas
