@@ -2,7 +2,7 @@ import numpy as np
 import math
 import struct
 def logistic_map(B0):
-    return np.minimum(4 * B0 * (1 - B0), 10000)
+    return np.minimum(3.195 * B0 * (1 - B0), 10000)
 
 
 def map_C(B, x):
@@ -38,29 +38,52 @@ def generate_sequence(X0, B0, num):
         
         B0 = B_next
         X0 = X_next
-    return z
+    return z, B0
 
     
 # MAIN
-list = []    
-for i in range(100):
-    
-    num = 100
-    X0 = np.random.rand()
-    B0 = np.random.rand()
-    while B0 == 0 or B0 == 0.75 or B0 == 1:
-            B0 = np.random.rand()
+def main(X0, B0, size):
+    list = []    
+    for i in range(size):
         
-    num_random = generate_sequence(X0, B0, num)
-    list.append(num_random)
+        num = 50
+        # X0 = np.random.rand()
+        # B0 = np.random.rand()
+        # while B0 == 0 or B0 == 0.75 or B0 == 1:
+        #         B0 = np.random.rand()
+            
+        X0, B0 = generate_sequence(X0, B0, num)
+        list.append(int(X0 * pow(2,56)) % 256)
 
-print(list)
+    binary_list  = decimal_to_binary_list(list)
+    write_binary_list_to_file(binary_list, 'numeros_binarios.txt')
+    return list
 
-with open('numeros_binarios_v0.txt', 'w') as f:
-    # Para cada número decimal, convertemos para o formato binário e escrevemos no arquivo de texto
-    for numero in list:
-        # Usando o método pack da biblioteca struct para converter o número em binário
-        numero_binario = struct.pack('f', numero)
-        numero_binario_str = ''.join(format(byte, '08b') for byte in numero_binario)
-        f.write(numero_binario_str + '\n')
+def decimal_to_binary_list(decimal_numbers):
+    # Convert each decimal number to binary using bin() function
+    binary_list = [bin(num)[2:] for num in decimal_numbers]
+    return binary_list
 
+def write_binary_list_to_file(binary_list, filename):
+    with open(filename, "w") as file:
+        for binary_str in binary_list:
+            file.write(binary_str + "\n")
+
+def keygen(x, r, size):
+    key = []
+    for i in range(size):
+        x = r * x * (1-x)
+        key.append(x)
+    return key
+
+def keygen_int(x, r, size):
+    key = []
+    for i in range(size):
+        x = r * x * (1-x)
+        key.append(int(x * pow(10,16)) % 6)
+    print(key)
+    return key
+
+if __name__ == "__main__":
+    # main(0.001, 0.653, 100)
+    keygen_int(0.001, 3.915, 70)
