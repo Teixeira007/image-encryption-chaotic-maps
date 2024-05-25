@@ -12,7 +12,7 @@ def deserialize_numbers(serialized):
 
 def encrypt_numbers():
     key = os.urandom(32)  # AES-256 key
-    numbers = [4205980.0, 0.001985, 3.915, 0.153972, 3.915, 53874634.0, 890545354.0]
+    numbers = [6534234.0, 0.1987, 4.0, 0.73974, 4.0, 76453454.0, 534675657.0]
     serialized = serialize_numbers(numbers)
     iv = os.urandom(16)
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())

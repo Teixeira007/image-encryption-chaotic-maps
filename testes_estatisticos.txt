@@ -1,0 +1,35 @@
+Dados com r = 3.99
+
+Entropy of the encrypted image: 7.6312 bits per pixel
+Maximum possible entropy: 8 bits per pixel
+Entropy percentage: 95.39%
+
+Correlação imagem Lena
+Horizontal: 0.9732555120296803
+Vertical: 0.986473953443453
+Diagonal: 0.9603464680250685
+
+Correlação imagem Lena Cifrada
+Horizontal: -0.0005119535728924159
+Vertical: -0.00015151879868936717
+Diagonal: -0.002347794148278467
+
+Dados com r = 4.0
+Entropy of the encrypted image: 7.6312 bits per pixel
+Maximum possible entropy: 8 bits per pixel
+Entropy percentage: 95.39%
+Correlação imagem Lena
+Horizontal: 0.9732555120296803
+Vertical: 0.986473953443453
+Diagonal: 0.9603464680250685
+Correlação imagem Lena Cifrada
+Horizontal: -0.00011300722922634008
+Vertical: -0.0015008232067321714
+Diagonal: 0.00028773524450855577
+
+Análise diferencial de ataques, comparando imagem com 1 pixel de diferença da original
+UACI:  20.529328888537837
+NRPC: 98.22%
+
+Mean Squared Error (MSE): 4892.553455352783
+Structural Similarity Index (SSIM): 0.009508408453325153
