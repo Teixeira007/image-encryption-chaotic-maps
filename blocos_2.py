@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import function_f
-import random
 import beach
 import key as k
 
