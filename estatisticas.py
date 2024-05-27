@@ -1,3 +1,4 @@
+import random
 from PIL import Image
 import cv2
 import numpy as np
@@ -54,6 +55,18 @@ def calculate_and_plot_correlation(original_image, encrypted_image):
     print("Vertical:", encrypted_vertical_corr)
     print("Diagonal:", encrypted_diagonal_corr)
 
+def correlacao_px_adjacente(image, height, width, title):
+    samples_x = []
+    samples_y = []
+    for i in range(1024):
+        x = random.randint(0,height-2)
+        y = random.randint(0,width-1)
+        samples_x.append(image[x][y])
+        samples_y.append(image[x+1][y])
+    plt.figure(figsize=(6,4))
+    plt.scatter(samples_x,samples_y,s=2)
+    plt.title(title)
+    plt.show()
 
 # Exemplo de uso:
 image = cv2.imread("imagens/lena.bmp")
@@ -74,4 +87,8 @@ image_2 = cv2.imread(encrypted_image_path)
 
 encrypted_image = np.array(image_2)
 calculate_and_plot_correlation(original_image,encrypted_image)
+
+height, width, _ = image.shape
+correlacao_px_adjacente(original_image, height, width, "Adjacent Pixel Autocorrelation - Original Image")
+correlacao_px_adjacente(encrypted_image, height, width, "Adjacent Pixel Autocorrelation - Original Encrypted")
 
