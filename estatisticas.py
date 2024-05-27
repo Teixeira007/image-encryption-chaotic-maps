@@ -7,10 +7,9 @@ import matplotlib.pyplot as plt
 
 
 def calculate_entropy(image_path):
-    with Image.open(image_path) as img:
-        # Convert image to grayscale if it's not already
-        img = img.convert('L')
-        pixels = np.array(img).flatten()
+   
+    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    pixels = img.flatten()
     
     histogram = Counter(pixels)
     total_pixels = len(pixels)
@@ -22,16 +21,8 @@ def calculate_entropy(image_path):
     
     return entropy
 
-# Exemplo de uso:
-encrypted_image_path = 'imagens/lena_cifrada.bmp'
-entropy = calculate_entropy(encrypted_image_path)
-max_entropy = 8  # Máxima entropia para uma imagem de 8 bits
-print(f"Entropy of the encrypted image: {entropy:.4f} bits per pixel")
-print(f"Maximum possible entropy: {max_entropy} bits per pixel")
-print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
-
 def plot_histogram(image_path, title):
-    image = Image.open(image_path)  # Converter para escala de cinza
+    image = cv2.imread(image_path)  # Converter para escala de cinza
     image_array = np.array(image)
 
     plt.figure()
@@ -40,9 +31,6 @@ def plot_histogram(image_path, title):
     plt.ylabel('Frequência')
     plt.hist(image_array.flatten(), bins=256, range=(0, 256), color='blue', alpha=0.7)
     plt.show()
-
-plot_histogram("imagens/lena.bmp", 'Histograma da Imagem Original')
-plot_histogram("imagens/lena_cifrada.bmp", 'Histograma da Imagem Criptografada')
 
 def calculate_and_plot_correlation(original_image, encrypted_image):
     def correlation_coefficient(x, y):
@@ -67,11 +55,23 @@ def calculate_and_plot_correlation(original_image, encrypted_image):
     print("Diagonal:", encrypted_diagonal_corr)
 
 
+# Exemplo de uso:
+image = cv2.imread("imagens/lena.bmp")
+encrypted_image_path = 'imagens/img_cifrada_r_3.99.bmp'
+entropy = calculate_entropy(encrypted_image_path)
 
-image = Image.open("imagens/lena.bmp")  # Converter para escala de cinza
+max_entropy = 8  # Máxima entropia para uma imagem de 8 bits
+print(f"Entropy of the encrypted image: {entropy:.4f} bits per pixel")
+print(f"Maximum possible entropy: {max_entropy} bits per pixel")
+print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
+
+plot_histogram("imagens/lena.bmp", 'Histograma da Imagem Original')
+plot_histogram(encrypted_image_path, 'Histograma da Imagem Criptografada')
+
+
 original_image = np.array(image)
+image_2 = cv2.imread(encrypted_image_path)
 
-image_2 = Image.open("imagens/img_cifrada_r_3.99.bmp")  # Converter para escala de cinza
 encrypted_image = np.array(image_2)
 calculate_and_plot_correlation(original_image,encrypted_image)
 
