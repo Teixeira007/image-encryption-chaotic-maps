@@ -14,7 +14,7 @@ O arquivo beach.py implementa um gerador de números aleatórios e pseudo-aleat�
  <img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/mapas/mapa_logistico_4.png" width="600" height="500" alt="Imagem 2">
  
  #### Comportamento do algoritmo BEACH
-  <img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/mapas/algoritmo_beach.png" width="700" height="600" alt="Imagem 2">
+  <img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/mapas/algoritmo_beach.png" width="800" height="600" alt="Imagem 2">
 
 [Artigo sobre o algoritmo BEACH](https://arxiv.org/pdf/0811.1823v2)
 
@@ -43,18 +43,18 @@ Nos resultados fornecidos, a entropia da imagem criptografada é de 7.6312 bits 
 Os histogramas das imagens originais e cifradas são importantes indicadores da eficácia da criptografia. O histograma de uma imagem mostra a distribuição de intensidades de cores ou níveis de cinza. No contexto da criptografia de imagem, o histograma da imagem cifrada deve ser o mais uniforme e "reto" possível, indicando que a criptografia espalhou as informações de forma aleatória e uniforme pela imagem.
 <table>
   <tr>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/lena.png" width="400" height="400" alt="Imagem 1">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/lena.png" width="500" height="500" alt="Imagem 1">
     <p align="center">Imagem Lena</p></td>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/lena_cifrada.png" width="400" height="400" alt="Imagem 2">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/lena_cifrada.png" width="500" height="500" alt="Imagem 2">
       <p align="center">Imagem Cifrada</p>
     </td>
   </tr>
 </table>
 <table>
   <tr>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/histograma_imagem_original.png" width="400" height="400" alt="Imagem 1">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/histograma_imagem_original.png" width="450" height="450" alt="Imagem 1">
     <p align="center">Histograma Imagem Lena</p></td>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/histograma_imagem_cifrada.png" width="400" height="400" alt="Imagem 2">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/histograma_imagem_cifrada.png" width="450" height="450" alt="Imagem 2">
       <p align="center">Histograma Imagem Cifrada</p>
     </td>
   </tr>
@@ -66,9 +66,9 @@ A correlação é uma medida estatística que indica o grau de relação entre d
 Os resultados mostram que a correlação entre os pixels da imagem original e criptografada é muito baixa, com valores próximos de zero. Por exemplo, as correlações horizontal, vertical e diagonal da imagem original de Lena são aproximadamente <b>0.9733, 0.9865 e 0.9603</b>, respectivamente, enquanto as correlações correspondentes na imagem criptografada são próximas de zero <b>(-0.0005, -0.0002 e -0.0023, respectivamente)</b>. Isso indica uma dispersão significativa dos dados durante o processo de criptografia, dificultando a reconstrução da imagem original a partir da imagem criptografada.
 <table>
   <tr>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/dispers%C3%A3o_horizontal_original.png" width="400" height="400" alt="Imagem 1">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/dispers%C3%A3o_horizontal_original.png" width="500" height="400" alt="Imagem 1">
     <p align="center">Dispersão horizontal da imagem original</p></td>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/dispers%C3%A3o_horizontal_cifrada.png" width="400" height="400" alt="Imagem 2">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/dispers%C3%A3o_horizontal_cifrada.png" width="500" height="400" alt="Imagem 2">
       <p align="center">Dispersão horizontal da imagem cifrada</p>
     </td>
   </tr>
@@ -82,10 +82,8 @@ O gráfico de dispersão mostra a relação entre os valores dos pixels adjacent
 Observe os gráficos:
 <table>
   <tr>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent Pixel Autocorrelation - Original Image" width="400" height="400" alt="Imagem 1">
-    <p align="center">Dispersão horizontal da imagem original</p></td>
-    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent Pixel Autocorrelation - Original encrypted" width="400" height="400" alt="Imagem 2">
-      <p align="center">Dispersão horizontal da imagem cifrada</p>
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent%20Pixel%20Autocorrelation%20-%20Original%20Image.png" width="500" height="400" alt="Imagem 1">
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent%20Pixel%20Autocorrelation%20-%20Original%20encrypted.png" width="500" height="400" alt="Imagem 2">
     </td>
   </tr>
 </table>
