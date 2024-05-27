@@ -28,8 +28,8 @@ Vertical: -0.0015008232067321714
 Diagonal: 0.00028773524450855577
 
 Análise diferencial de ataques, comparando imagem com 1 pixel de diferença da original
-UACI:  20.529328888537837
-NRPC: 98.22%
+UACI:  33.441486732632505
+NRPC: 99.25%
 
 Mean Squared Error (MSE): 4892.553455352783
 Structural Similarity Index (SSIM): 0.009508408453325153
