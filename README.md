@@ -74,10 +74,27 @@ Os resultados mostram que a correlação entre os pixels da imagem original e cr
   </tr>
 </table>
 
+### Autocorrelação de pixels adjacentes
+A autocorrelação de pixels adjacentes é uma maneira de avaliar a dependência espacial entre pixels em uma imagem, o que pode ser útil para analisar a estrutura de uma imagem ou a eficácia de um algoritmo de cifragem.
+
+O gráfico de dispersão mostra a relação entre os valores dos pixels adjacentes. Se os pontos estiverem muito próximos de uma linha diagonal (indicando que os valores dos pixels adjacentes são semelhantes), isso sugere uma alta correlação espacial. Em uma imagem cifrada de alta qualidade, esperamos ver uma dispersão mais uniforme, indicando baixa correlação entre pixels adjacentes e, portanto, maior segurança.
+
+Observe os gráficos:
+<table>
+  <tr>
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent Pixel Autocorrelation - Original Image" width="400" height="400" alt="Imagem 1">
+    <p align="center">Dispersão horizontal da imagem original</p></td>
+    <td><img src="https://github.com/Teixeira007/image-encryption-chaotic-maps/blob/main/imagens/readme/Adjacent Pixel Autocorrelation - Original encrypted" width="400" height="400" alt="Imagem 2">
+      <p align="center">Dispersão horizontal da imagem cifrada</p>
+    </td>
+  </tr>
+</table>
+
 ### Análise Diferencial de Ataques
 A análise diferencial de ataques é uma técnica utilizada para avaliar a resistência de um sistema de criptografia a pequenas alterações nos dados originais. Calculamos o Índice de Mudança Média de Intensidade Unificado (UACI) e o Índice de Redução de Pixel Normalizado (NRPC) para determinar o impacto de uma única alteração de pixel na imagem criptografada.
 
-Os resultados indicam que, em média, uma única alteração de pixel na imagem original resulta em um UACI de 20.5293 e um NRPC de 98.22%. Isso sugere que mesmo pequenas alterações na imagem original têm um impacto significativo na imagem criptografada, tornando-a menos suscetível a ataques diferenciais.
+Os resultados indicam que, em média, uma única alteração de pixel na imagem original resulta em um UACI de 33.441486 e um NRPC de 99.25%. Isso sugere que mesmo pequenas alterações na imagem original têm um impacto significativo na imagem criptografada, tornando-a menos suscetível a ataques diferenciais.
+
 ## Sensiblidade da Chave
 Utilizamos algomas metricas para avaliar a sensibilidade de pequenas alterações nas chaves
 ### Mean Squared Error (MSE)
