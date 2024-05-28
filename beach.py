@@ -45,7 +45,7 @@ def main(X0, B0, size):
     list = []    
     for i in range(size):
         
-        num = 100
+        num = 50
         X0, B0 = generate_sequence(X0, B0, num)
         list.append(int(X0 * pow(2,56)) % 256)
 
