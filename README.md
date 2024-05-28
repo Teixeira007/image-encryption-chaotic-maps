@@ -91,7 +91,7 @@ Observe os gráficos:
 ### Análise Diferencial de Ataques
 A análise diferencial de ataques é uma técnica utilizada para avaliar a resistência de um sistema de criptografia a pequenas alterações nos dados originais. Calculamos o Índice de Mudança Média de Intensidade Unificado (UACI) e o Índice de Redução de Pixel Normalizado (NRPC) para determinar o impacto de uma única alteração de pixel na imagem criptografada.
 
-Os resultados indicam que, em média, uma única alteração de pixel na imagem original resulta em um UACI de 33.441486 e um NRPC de 99.25%. Isso sugere que mesmo pequenas alterações na imagem original têm um impacto significativo na imagem criptografada, tornando-a menos suscetível a ataques diferenciais.
+Os resultados indicam que, em média, uma única alteração de pixel na imagem original resulta em um UACI de 33.45869 e um NRPC de 99.62%. Isso sugere que mesmo pequenas alterações na imagem original têm um impacto significativo na imagem criptografada, tornando-a menos suscetível a ataques diferenciais.
 
 ## Sensiblidade da Chave
 Utilizamos algomas metricas para avaliar a sensibilidade de pequenas alterações nas chaves

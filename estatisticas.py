@@ -70,7 +70,7 @@ def correlacao_px_adjacente(image, height, width, title):
 
 # Exemplo de uso:
 image = cv2.imread("imagens/lena.bmp")
-encrypted_image_path = 'imagens/img_cifrada_r_3.99.bmp'
+encrypted_image_path = 'img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp'
 entropy = calculate_entropy(encrypted_image_path)
 
 max_entropy = 8  # Máxima entropia para uma imagem de 8 bits
