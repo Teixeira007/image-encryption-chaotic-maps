@@ -32,4 +32,3 @@ def decrypt_numbers(encrypted_data, key):
     unpadder = padding.PKCS7(algorithms.AES.block_size).unpadder()
     decrypted = unpadder.update(decrypted_padded) + unpadder.finalize()
     return deserialize_numbers(decrypted.decode())
-

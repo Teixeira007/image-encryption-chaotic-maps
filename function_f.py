@@ -8,7 +8,7 @@ def main(bloco, random_X, random_B, k5, k6):
 
     height = bloco.shape[0]
     width = bloco.shape[1]
-    list_beach = beach.main(random_X, random_B, 10000)
+    list_beach = beach.main(random_X, random_B, 1000)
     z=0
     enimg = np.zeros(shape=[height, width, 3], dtype=np.uint8)
     for i in range(height):
