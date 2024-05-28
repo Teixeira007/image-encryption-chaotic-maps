@@ -7,20 +7,37 @@ import math
 import matplotlib.pyplot as plt
 
 
-def calculate_entropy(image_path):
-   
-    img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    pixels = img.flatten()
-    
-    histogram = Counter(pixels)
-    total_pixels = len(pixels)
-    
+def calculate_entropy(image):
+    # Verifica se a imagem é colorida ou em tons de cinza
+    if len(image.shape) == 3:
+        # Imagem colorida
+        channels = cv2.split(image)
+        entropies = [calculate_entropy_single_channel(channel) for channel in channels]
+        return np.mean(entropies)
+    else:
+        # Imagem em tons de cinza
+        return calculate_entropy_single_channel(image)
+
+def calculate_entropy_single_channel(channel):
+    # Conta a frequência de cada valor de pixel no canal
+    pixel_counts = Counter(channel.flatten())
+    total_pixels = channel.size
     entropy = 0
-    for pixel_value in histogram:
-        probability = histogram[pixel_value] / total_pixels
-        entropy -= probability * math.log2(probability)
+
+    for count in pixel_counts.values():
+        p_x = count / total_pixels
+        entropy -= p_x * np.log2(p_x)
     
     return entropy
+
+# Exemplo de uso:
+# Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
+imagem_cifrada = cv2.imread('img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp')
+
+# Calcular a entropia
+entropy = calculate_entropy(imagem_cifrada)
+print(f"Entropia da imagem cifrada: {entropy}")
+
 
 def plot_histogram(image_path, title):
     image = cv2.imread(image_path)  # Converter para escala de cinza
@@ -71,7 +88,7 @@ def correlacao_px_adjacente(image, height, width, title):
 # Exemplo de uso:
 image = cv2.imread("imagens/lena.bmp")
 encrypted_image_path = 'img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp'
-entropy = calculate_entropy(encrypted_image_path)
+# entropy = calculate_entropy(encrypted_image_path)
 
 max_entropy = 8  # Máxima entropia para uma imagem de 8 bits
 print(f"Entropy of the encrypted image: {entropy:.4f} bits per pixel")

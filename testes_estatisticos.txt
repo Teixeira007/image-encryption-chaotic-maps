@@ -15,17 +15,17 @@ Vertical: -0.00015151879868936717
 Diagonal: -0.002347794148278467
 
 Dados com r = 4.0
-Entropy of the encrypted image: 7.6312 bits per pixel
+Entropy of the encrypted image: 7.9993 bits per pixel
 Maximum possible entropy: 8 bits per pixel
-Entropy percentage: 95.39%
+Entropy percentage: 99.99%
 Correlação imagem Lena
 Horizontal: 0.9732555120296803
 Vertical: 0.986473953443453
 Diagonal: 0.9603464680250685
 Correlação imagem Lena Cifrada
-Horizontal: -0.00011300722922634008
-Vertical: -0.0015008232067321714
-Diagonal: 0.00028773524450855577
+Horizontal: 0.0006744604467080021
+Vertical: -0.0010549917021830464
+Diagonal: -0.000603122165041199
 
 Análise diferencial de ataques, comparando imagem com 1 pixel de diferença da original
 UACI:  33.45869

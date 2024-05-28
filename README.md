@@ -37,7 +37,7 @@ A função gera uma chave criptográfica AES-256 aleatoria. Em seguida, ela usa 
 ### Entropia
 A entropia é uma medida de incerteza ou desordem em um conjunto de dados. Em sistemas de criptografia, a entropia é um indicador importante da aleatoriedade e complexidade dos dados criptografados. Quanto maior a entropia, mais imprevisíveis e difíceis de decifrar são os dados.
 
-Nos resultados fornecidos, a entropia da imagem criptografada é de 7.6312 bits por pixel, com um máximo teórico de 8 bits por pixel. A entropia percentual é de 95.39%, sugerindo que a imagem criptografada é altamente complexa e difícil de prever.
+Nos resultados fornecidos, a entropia da imagem criptografada é de 7.9993 bits por pixel, com um máximo teórico de 8 bits por pixel. A entropia percentual é de 99.99%, sugerindo que a imagem criptografada é altamente complexa e difícil de prever.
 
 ### Observe o Histograma:
 Os histogramas das imagens originais e cifradas são importantes indicadores da eficácia da criptografia. O histograma de uma imagem mostra a distribuição de intensidades de cores ou níveis de cinza. No contexto da criptografia de imagem, o histograma da imagem cifrada deve ser o mais uniforme e "reto" possível, indicando que a criptografia espalhou as informações de forma aleatória e uniforme pela imagem.

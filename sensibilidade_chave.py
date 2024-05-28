@@ -20,14 +20,6 @@ def calculate_ssim(imageA, imageB):
     s, _ = ssim(imageA, imageB, full=True)
     return s
 
-def plot_histogram(image, title):
-    color = ('b', 'g', 'r')
-    for i, col in enumerate(color):
-        histr = cv2.calcHist([image], [i], None, [256], [0, 256])
-        plt.plot(histr, color = col)
-        plt.xlim([0, 256])
-    plt.title(title)
-    plt.show()
 
 # Load images
 image_path1 = 'imagens/sensibilidade_a_chave/img_cifrada_chave_0.001985_0.153972.bmp'
