@@ -5,7 +5,7 @@ import numpy as np
 from collections import Counter
 import math
 import matplotlib.pyplot as plt
-
+from scipy.stats import pearsonr
 
 def calculate_entropy(image):
     # Verifica se a imagem é colorida ou em tons de cinza
@@ -40,10 +40,10 @@ print(f"Entropia da imagem cifrada: {entropy}")
 
 
 def plot_histogram(image_path, title):
-    image = cv2.imread(image_path)  # Converter para escala de cinza
+    image = cv2.imread(image_path)  
     image_array = np.array(image)
 
-    plt.figure()
+    plt.figure(figsize=(4,4))
     plt.title(title)
     plt.xlabel('Valor do Pixel')
     plt.ylabel('Frequência')
@@ -75,15 +75,38 @@ def calculate_and_plot_correlation(original_image, encrypted_image):
 def correlacao_px_adjacente(image, height, width, title):
     samples_x = []
     samples_y = []
+    
     for i in range(1024):
-        x = random.randint(0,height-2)
-        y = random.randint(0,width-1)
-        samples_x.append(image[x][y])
-        samples_y.append(image[x+1][y])
-    plt.figure(figsize=(6,4))
-    plt.scatter(samples_x,samples_y,s=2)
-    plt.title(title)
+        x = random.randint(0, height - 2)
+        y = random.randint(0, width - 1)
+        
+        # Verificar se estamos lidando com uma imagem em escala de cinza ou uma imagem colorida
+        if len(image.shape) == 2:  # Imagem em escala de cinza
+            samples_x.append(image[x, y])
+            samples_y.append(image[x + 1, y])
+        elif len(image.shape) == 3:  # Imagem colorida
+            # Se for uma imagem colorida, escolha um canal (por exemplo, canal R)
+            samples_x.append(image[x, y, 0])
+            samples_y.append(image[x + 1, y, 0])
+        else:
+            raise ValueError("Formato de imagem não suportado")
+    
+    # Converter listas para arrays numpy unidimensionais
+    samples_x = np.array(samples_x).flatten()
+    samples_y = np.array(samples_y).flatten()
+    
+    # Calcular a correlação de Pearson
+    correlation, _ = pearsonr(samples_x, samples_y)
+    
+    # Visualização
+    plt.figure(figsize=(5, 5))
+    plt.scatter(samples_x, samples_y, s=2)
+    plt.title(f'{title}\nCorrelação: {correlation:.4f}')
+    plt.xlabel('Pixel (x, y)')
+    plt.ylabel('Pixel (x+1, y)')
     plt.show()
+    
+    return correlation
 
 # Exemplo de uso:
 image = cv2.imread("imagens/lena.bmp")
@@ -106,6 +129,6 @@ encrypted_image = np.array(image_2)
 calculate_and_plot_correlation(original_image,encrypted_image)
 
 height, width, _ = image.shape
-correlacao_px_adjacente(original_image, height, width, "Adjacent Pixel Autocorrelation - Original Image")
-correlacao_px_adjacente(encrypted_image, height, width, "Adjacent Pixel Autocorrelation - Original Encrypted")
+correlacao_px_adjacente(original_image, height, width, "Correlação dos Pixels Adjacente- Imagem Original")
+correlacao_px_adjacente(encrypted_image, height, width, "Correlação dos Pixels Adjacente - Imagem Cifrada")
 

@@ -150,7 +150,7 @@ pip install matplotlib opencv-python numpy cryptography math scikit-image scipy
 python main.py
 ```
 5. Utilize os demais scripts para análise e avaliação da criptografia, conforme necessário.
-6. Pode executar o algoritmo testes_nist.py, para ver o resultado dos testes, nele você passa o caminho do arquivo que está com a sequencia de bits da imagem criptografada
+6. Pode executar o algoritmo testes_nist.py, para ver o resultado dos testes NIST, nele você passa o caminho do arquivo que está com a sequencia de bits da imagem criptografada
 ```bash
 python testes_nist.py
 ```
@@ -159,5 +159,5 @@ python testes_nist.py
 git clone https://github.com/stevenang/randomness_testsuite.git
 ```
 8. O resultado dos testes estão num arquivo txt chamado testes_nist
-9. E os outros dados estatisticos estão bum arquivo txt chamado testes_estatisticos
+9. E os outros dados estatisticos estão em um arquivo txt chamado testes_estatisticos
 

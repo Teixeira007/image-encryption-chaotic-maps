@@ -34,4 +34,4 @@ resultado_uaci  = uaci(enc_original, enc_cifrada)
 print('UACI: ', resultado_uaci)
 
 resultado_nrpc = npcr(enc_original, enc_cifrada)
-print("NRPC: {:.2f}%".format(resultado_nrpc))
+print("NRPC: {:.4f}%".format(resultado_nrpc))

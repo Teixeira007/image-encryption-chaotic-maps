@@ -9,11 +9,11 @@ def plot_logistic_map(r, x0, num_iterations):
     x[0] = x0
     
     for i in range(1, num_iterations):
-        x[i] = beach.logistic_map(x[i-1])
+        x[i] = beach.logistic_map(r, x[i-1])
     
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(6, 4))
     plt.plot(range(num_iterations), x, marker='o', linestyle='-', color='b')
-    plt.title(f'Comportamento Iterativo do Mapa Logístico para r = {r}')
+    plt.title(f'r = {r}')
     plt.xlabel('Iterações')
     plt.ylabel('x')
     plt.grid(True)
@@ -30,6 +30,6 @@ def plot_beach(list):
     plt.grid(True)
     plt.show()
 
-list = beach.main(0.5, 0.653, 100)
+list = beach.main(0.0876, 0.353, 100)
 plot_beach(list)
-plot_logistic_map(3.99, 0.5, 100)
+# plot_logistic_map(3.9, 0.08, 100)

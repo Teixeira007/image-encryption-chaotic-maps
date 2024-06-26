@@ -1,7 +1,7 @@
 import numpy as np
 
 def logistic_map(B0):
-    return  3.99 * B0 * (1 - B0)
+    return  4 * B0 * (1 - B0)
 
 
 def map_b_exponencial(B, x):
@@ -47,7 +47,7 @@ def main(X0, B0, size):
         
         num = 50
         X0, B0 = generate_sequence(X0, B0, num)
-        list.append(int(X0 * pow(2,56)) % 256)
+        list.append(int(X0 * pow(2,56)) % 255)
 
     return list
 

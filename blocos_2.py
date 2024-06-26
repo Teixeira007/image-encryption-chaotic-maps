@@ -25,14 +25,12 @@ def dividir_em_blocos(imagem):
     return left_block, right_block
 
 def criar_bloco_auxiliar(dimensao, semente):
-    # Definir a semente para a geração de números aleatórios
     np.random.seed(semente)
     bloco_auxiliar = np.random.randint(0, 256, size=dimensao, dtype=np.uint8)  # Valores aleatórios entre 0 e 255
     return bloco_auxiliar
 
-
+# Aplicar a operação XOR entre o bloco original e o bloco auxiliar
 def xor_de_bloco(bloco, bloco_auxiliar):
-    # Aplicar a operação XOR entre o bloco original e o bloco auxiliar
     resultado_xor = np.bitwise_xor(bloco, bloco_auxiliar)
     return resultado_xor
 

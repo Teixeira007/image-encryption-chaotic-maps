@@ -9,7 +9,7 @@ def imagem_permutada(imagem, seed, seed_b):
 
     random.seed(seed)
     linhas_permutadas = np.random.permutation(altura)
-    random.seed(seed_b)  # Reinicia a semente para que as permutações de colunas sejam iguais às permutações de linhas
+    random.seed(seed_b)  
     colunas_permutadas = np.random.permutation(largura)
 
     # Salvar as permutações para posterior reversão
