@@ -23,7 +23,7 @@ def  decript(imagem, random_X, random_B, linhas_permutadas_inversas, colunas_per
     imagem = cubo_rubik.decript(imagem, linhas_permutadas_inversas, colunas_permutadas_inversas)
     height = imagem.shape[0]
     width = imagem.shape[1]
-    list_beach = beach.main(random_X, random_B, 10000)
+    list_beach = beach.main(random_X, random_B, 1000)
     z=0
     decimg = np.zeros(shape=[height, width, 3], dtype=np.uint8)
     for i in range(height):
