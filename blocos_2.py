@@ -50,9 +50,9 @@ def l_r_reverse(left_block, right_block, aux, random_numbers_X, random_numbers_B
     return processed_image
 
 
-def main(imagem, key, key__):
+def main(imagem, key):
 
-    key = k.decrypt_numbers(key, key__)
+    # key = k.decrypt_numbers(key, key__)
     # Dividir a imagem em blocos
     left_block, right_block  = dividir_em_blocos(imagem)
     dimensao = left_block.shape
@@ -74,8 +74,8 @@ def main(imagem, key, key__):
     return l_next, linhas, colunas
         
 
-def decrypt(imagem, lista_linhas, lista_colunas, key, key__):
-    key = k.decrypt_numbers(key, key__)
+def decrypt(imagem, lista_linhas, lista_colunas, key):
+    # key = k.decrypt_numbers(key, key__)
 
     height, width, channels = imagem.shape
     mid = width // 2
