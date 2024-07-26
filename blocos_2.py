@@ -57,16 +57,16 @@ def main(imagem, key):
 
     semente = int(key[0])
     l_next = imagem
-    random_numbers_X = beach.keygen(key[1], key[2], 7)
+    random_numbers_X = beach.keygen(key[1], 7)
 
-    random_numbers_B = beach.keygen(key[3], key[4], 7)
+    random_numbers_B = beach.keygen(key[3], 7)
 
     bloco_auxiliar_L = criar_bloco_auxiliar(dimensao, semente=semente)
 
     
     for i in range (7):
         left_block, right_block  = dividir_em_blocos(l_next)
-        l_next = l_r(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], key[5], key[6])
+        l_next = l_r(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], key[3], key[4])
 
     return l_next
         
@@ -75,12 +75,10 @@ def decrypt(imagem, key):
     # key = k.decrypt_numbers(key, key__)
 
     height, width, channels = imagem.shape
-    np.random.seed(key[5])
-    linhas_permutadas = np.random.permutation(height)
-    np.random.seed(key[6])  
-    
-    colunas_permutadas = np.random.permutation(width//2)
 
+    linhas_permutadas = beach.chaotic_permutation(height, key[3])
+    colunas_permutadas = beach.chaotic_permutation(width//2, key[4])
+  
     # Salvar as permutações para posterior reversão
     linhas_permutadas_inversas = np.argsort(linhas_permutadas)
     colunas_permutadas_inversas = np.argsort(colunas_permutadas)
@@ -93,9 +91,9 @@ def decrypt(imagem, key):
 
     semente = int(key[0])
 
-    random_numbers_X = beach.keygen(key[1], key[2], 7)
+    random_numbers_X = beach.keygen(key[1], 7)
 
-    random_numbers_B = beach.keygen(key[3], key[4], 7)
+    random_numbers_B = beach.keygen(key[3], 7)
 
     bloco_auxiliar_L = criar_bloco_auxiliar(dimensao, semente=semente)
     l_next = imagem

@@ -1,16 +1,15 @@
 import cv2
 import numpy as np
 import random
+import beach
 
 
 def imagem_permutada(imagem, seed, seed_b):
  
     altura, largura, _ = imagem.shape
 
-    np.random.seed(seed)
-    linhas_permutadas = np.random.permutation(altura)
-    np.random.seed(seed_b)  
-    colunas_permutadas = np.random.permutation(largura)
+    linhas_permutadas = beach.chaotic_permutation(altura, seed)
+    colunas_permutadas = beach.chaotic_permutation(largura, seed_b)
 
     # Aplicar as permutações na imagem
     imagem_permutada = np.zeros_like(imagem)
@@ -23,7 +22,7 @@ def imagem_permutada(imagem, seed, seed_b):
 
 def decript(imagem_permutada, linhas_permutadas_inversas, colunas_permutadas_inversas):
     altura, largura, _ = imagem_permutada.shape
-    
+
      # Voltar à imagem original
     imagem_original = np.zeros_like(imagem_permutada)
     for i in range(altura):

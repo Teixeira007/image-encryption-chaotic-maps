@@ -52,10 +52,10 @@ def main(X0, B0, size):
     return list
 
 
-def keygen(x, r, size):
+def keygen(x, size):
     key = []
     for i in range(size):
-        x = r * x * (1-x)
+        x = 4 * x * (1-x)
         key.append(x)
     return key
 
@@ -67,6 +67,18 @@ def keygen_int(x, r, size):
     print(key)
     return key
 
+
+def logistica_map_permutation(x, dimensao):
+    seq = []
+    for _ in range(dimensao):
+        x = 4 * x * (1 - x)
+        seq.append(x)
+    return np.array(seq)
+
+def chaotic_permutation(dimensao, key):
+    seq  = logistica_map_permutation(key, dimensao)
+    return np.argsort(seq)
+
 if __name__ == "__main__":
-    list = main(0.5, 0.653, 100)
-    # keygen_int(0.001, 3.915, 70)
+    # list = main(0.5, 0.653, 100)
+    keygen_int(0.001, 3.915, 2)
