@@ -35,13 +35,11 @@ def xor_de_bloco(bloco, bloco_auxiliar):
     return resultado_xor
 
 
-def l_r(left_block, right_block, aux, random_numbers_X, random_numbers_B, lista_linhas, lista_colunas, k5, k6):
+def l_r(left_block, right_block, aux, random_numbers_X, random_numbers_B, k5, k6):
     right_block = xor_de_bloco(right_block, aux)
-    left_block, linhas, colunas = function_f.main(left_block, random_numbers_X, random_numbers_B, k5, k6)
-    lista_linhas.append(linhas)
-    lista_colunas.append(colunas)
+    left_block = function_f.main(left_block, random_numbers_X, random_numbers_B, k5, k6)
     processed_image = np.hstack((right_block, left_block))
-    return processed_image, lista_linhas, lista_colunas
+    return processed_image
 
 def l_r_reverse(left_block, right_block, aux, random_numbers_X, random_numbers_B, linhas, colunas):
     left_block  = xor_de_bloco(left_block, aux)
@@ -64,20 +62,29 @@ def main(imagem, key):
     random_numbers_B = beach.keygen(key[3], key[4], 7)
 
     bloco_auxiliar_L = criar_bloco_auxiliar(dimensao, semente=semente)
-    lista_linhas = []
-    lista_colunas = []
+
     
     for i in range (7):
         left_block, right_block  = dividir_em_blocos(l_next)
-        l_next, linhas, colunas = l_r(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], lista_linhas, lista_colunas, key[5], key[6])
+        l_next = l_r(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], key[5], key[6])
 
-    return l_next, linhas, colunas
+    return l_next
         
 
-def decrypt(imagem, lista_linhas, lista_colunas, key):
+def decrypt(imagem, key):
     # key = k.decrypt_numbers(key, key__)
 
     height, width, channels = imagem.shape
+    np.random.seed(key[5])
+    linhas_permutadas = np.random.permutation(height)
+    np.random.seed(key[6])  
+    
+    colunas_permutadas = np.random.permutation(width//2)
+
+    # Salvar as permutações para posterior reversão
+    linhas_permutadas_inversas = np.argsort(linhas_permutadas)
+    colunas_permutadas_inversas = np.argsort(colunas_permutadas)
+
     mid = width // 2
     left_block = imagem[:, :mid, :]
     right_block = imagem[:, mid:, :]
@@ -96,12 +103,9 @@ def decrypt(imagem, lista_linhas, lista_colunas, key):
     random_numbers_X = random_numbers_X[::-1]
     random_numbers_B = random_numbers_B[::-1]
 
-    lista_linhas = lista_linhas[::-1]
-    lista_colunas = lista_colunas[::-1]
-
     for i in range(7):
         left_block, right_block  = dividir_em_blocos(l_next)
-        l_next = l_r_reverse(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], lista_linhas[i], lista_colunas[i])
+        l_next = l_r_reverse(left_block, right_block, bloco_auxiliar_L, random_numbers_X[i], random_numbers_B[i], linhas_permutadas_inversas, colunas_permutadas_inversas)
 
     return l_next
 

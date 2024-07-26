@@ -7,14 +7,10 @@ def imagem_permutada(imagem, seed, seed_b):
  
     altura, largura, _ = imagem.shape
 
-    random.seed(seed)
+    np.random.seed(seed)
     linhas_permutadas = np.random.permutation(altura)
-    random.seed(seed_b)  
+    np.random.seed(seed_b)  
     colunas_permutadas = np.random.permutation(largura)
-
-    # Salvar as permutações para posterior reversão
-    linhas_permutadas_inversas = np.argsort(linhas_permutadas)
-    colunas_permutadas_inversas = np.argsort(colunas_permutadas)
 
     # Aplicar as permutações na imagem
     imagem_permutada = np.zeros_like(imagem)
@@ -22,11 +18,12 @@ def imagem_permutada(imagem, seed, seed_b):
         for j in range(largura):
             imagem_permutada[i, j] = imagem[linhas_permutadas[i], colunas_permutadas[j]]
 
-    return imagem_permutada, linhas_permutadas_inversas, colunas_permutadas_inversas
+    return imagem_permutada
 
 
 def decript(imagem_permutada, linhas_permutadas_inversas, colunas_permutadas_inversas):
     altura, largura, _ = imagem_permutada.shape
+    
      # Voltar à imagem original
     imagem_original = np.zeros_like(imagem_permutada)
     for i in range(altura):

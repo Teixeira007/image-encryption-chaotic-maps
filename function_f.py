@@ -16,8 +16,8 @@ def main(bloco, random_X, random_B, k5, k6):
             enimg[i, j] = bloco[i, j]^list_beach[z % len(list_beach)]
             z+=1
 
-    enimg, linhas_permutadas_inversas, colunas_permutadas_inversas = cubo_rubik.imagem_permutada(enimg, k5, k6)
-    return enimg, linhas_permutadas_inversas, colunas_permutadas_inversas
+    enimg = cubo_rubik.imagem_permutada(enimg, k5, k6)
+    return enimg
 
 def  decript(imagem, random_X, random_B, linhas_permutadas_inversas, colunas_permutadas_inversas):
     imagem = cubo_rubik.decript(imagem, linhas_permutadas_inversas, colunas_permutadas_inversas)
