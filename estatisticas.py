@@ -30,15 +30,6 @@ def calculate_entropy_single_channel(channel):
     
     return entropy
 
-# Exemplo de uso:
-# Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
-imagem_cifrada = cv2.imread('img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp')
-
-# Calcular a entropia
-entropy = calculate_entropy(imagem_cifrada)
-print(f"Entropia da imagem cifrada: {entropy}")
-
-
 def plot_histogram(image_path, title):
     image = cv2.imread(image_path)  
     image_array = np.array(image)
@@ -109,9 +100,14 @@ def correlacao_px_adjacente(image, height, width, title):
     return correlation
 
 # Exemplo de uso:
-image = cv2.imread("imagens/lena.bmp")
-encrypted_image_path = 'img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp'
-# entropy = calculate_entropy(encrypted_image_path)
+# Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
+imagem_cifrada = cv2.imread('lena_cifrado.bmp')
+image = cv2.imread("peppers_gray_512.tif")
+
+# Calcular a entropia
+entropy = calculate_entropy(imagem_cifrada)
+print(f"Entropia da imagem cifrada: {entropy}")
+
 
 max_entropy = 8  # Máxima entropia para uma imagem de 8 bits
 print(f"Entropy of the encrypted image: {entropy:.4f} bits per pixel")
@@ -119,13 +115,13 @@ print(f"Maximum possible entropy: {max_entropy} bits per pixel")
 print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
 
 plot_histogram("imagens/lena.bmp", 'Histograma da Imagem Original')
-plot_histogram(encrypted_image_path, 'Histograma da Imagem Criptografada')
+plot_histogram("mandril_gray_cifrado.bmp", 'Histograma da Imagem Criptografada')
 
 
 original_image = np.array(image)
-image_2 = cv2.imread(encrypted_image_path)
 
-encrypted_image = np.array(image_2)
+
+encrypted_image = np.array(imagem_cifrada)
 calculate_and_plot_correlation(original_image,encrypted_image)
 
 height, width, _ = image.shape
