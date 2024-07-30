@@ -1,0 +1,6 @@
+nome - entropia - urpc - nrpc
+lena - 7.999308139394731
+mandril - 7.999315485065467
+cameraman - 7.999229216583245
+livingroom - 7.999266423295488
+peppers - 7.999257001360637

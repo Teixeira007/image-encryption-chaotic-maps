@@ -2,17 +2,17 @@ import cv2
 import matplotlib.pyplot as plt
 import blocos_2
 
-imagem = cv2.imread('lena_gray_512.tif')
+imagem = cv2.imread('imagens/imagens_para_teste/lena_gray_512.tif')
 plt.show()
 
-numbers = [65342341.0, 0.1987, 0.73974, 0.0098324, 0.0032313]
+numbers = [0.09430, 0.1987, 0.73974, 0.0098324, 0.0032313]
 
 image_cript = blocos_2.main(imagem, numbers)
 plt.imshow(image_cript)
 plt.imsave("lena_cifrado.bmp", image_cript, cmap='gray')
 plt.show()
 
-numbers1 = [65342341.0, 0.1987, 0.73974, 0.0098324, 0.0032313]
+numbers1 = [0.09430, 0.1987, 0.73974, 0.0098324, 0.0032313]
 
 image_decript = blocos_2.decrypt(image_cript, numbers1)
 plt.imshow(image_decript)

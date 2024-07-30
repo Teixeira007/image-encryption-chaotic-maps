@@ -101,8 +101,8 @@ def correlacao_px_adjacente(image, height, width, title):
 
 # Exemplo de uso:
 # Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
-imagem_cifrada = cv2.imread('lena_cifrado.bmp')
-image = cv2.imread("peppers_gray_512.tif")
+imagem_cifrada = cv2.imread('imagens/imagens_para_teste/lena_cifrado.bmp')
+image = cv2.imread("imagens/imagens_para_teste/lena_gray_512.tif")
 
 # Calcular a entropia
 entropy = calculate_entropy(imagem_cifrada)
@@ -114,8 +114,8 @@ print(f"Entropy of the encrypted image: {entropy:.4f} bits per pixel")
 print(f"Maximum possible entropy: {max_entropy} bits per pixel")
 print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
 
-plot_histogram("imagens/lena.bmp", 'Histograma da Imagem Original')
-plot_histogram("mandril_gray_cifrado.bmp", 'Histograma da Imagem Criptografada')
+plot_histogram("imagens/imagens_para_teste/lena_gray_512.tif", 'Histograma da Imagem Original')
+plot_histogram("imagens/imagens_para_teste/lena_cifrado.bmp", 'Histograma da Imagem Criptografada')
 
 
 original_image = np.array(image)

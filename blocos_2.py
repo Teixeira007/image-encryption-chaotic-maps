@@ -24,8 +24,11 @@ def dividir_em_blocos(imagem):
     return left_block, right_block
 
 def criar_bloco_auxiliar(dimensao, semente):
-    np.random.seed(semente)
-    bloco_auxiliar = np.random.randint(0, 256, size=dimensao, dtype=np.uint8)  # Valores aleatórios entre 0 e 255
+    bloco_auxiliar = np.zeros(dimensao, dtype=np.uint8)
+    for i in range(dimensao[0]):
+        for j in range(dimensao[1]):
+            x = beach.logistic_map(semente)
+            bloco_auxiliar[i, j] = int(x * 255)
     return bloco_auxiliar
 
 # Aplicar a operação XOR entre o bloco original e o bloco auxiliar
