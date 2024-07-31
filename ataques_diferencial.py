@@ -28,8 +28,8 @@ def npcr(imagem_original, imagem_modificada):
     return npcr_value
 
 
-enc_original = cv2.imread('img_cifrada_chave_0.1987_0.73974_76453454.0_534675657.0.bmp')
-enc_cifrada = cv2.imread('imagens/img_cifrada_1px_modificada.bmp')
+enc_original = cv2.imread('imagens/img_cifrada_r_3.99.bmp')
+enc_cifrada = cv2.imread('imagem_modificada_lena.bmp')
 resultado_uaci  = uaci(enc_original, enc_cifrada)
 print('UACI: ', resultado_uaci)
 
