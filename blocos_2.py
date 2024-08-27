@@ -93,7 +93,7 @@ def decrypt(imagem, key):
 
     random_numbers_X = beach.keygen(key[1], 7)
 
-    random_numbers_B = beach.keygen(key[3], 7)
+    random_numbers_B = beach.keygen(key[2], 7)
 
     bloco_auxiliar_L = criar_bloco_auxiliar(dimensao, semente=semente)
     l_next = imagem
