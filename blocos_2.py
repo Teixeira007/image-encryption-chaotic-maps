@@ -74,7 +74,7 @@ def main(imagem, key):
 
 def decrypt(imagem, key):
 
-    height, width, channels = imagem.shape
+    height, width = imagem.shape
 
     linhas_permutadas = beach.chaotic_permutation(height, key[3])
     colunas_permutadas = beach.chaotic_permutation(width//2, key[4])
@@ -84,8 +84,8 @@ def decrypt(imagem, key):
     colunas_permutadas_inversas = np.argsort(colunas_permutadas)
 
     mid = width // 2
-    left_block = imagem[:, :mid, :]
-    right_block = imagem[:, mid:, :]
+    left_block = imagem[:, :mid]
+    right_block = imagem[:, mid:]
 
     dimensao = left_block.shape
 

@@ -6,7 +6,7 @@ import beach
 
 def imagem_permutada(imagem, seed, seed_b):
  
-    altura, largura, _ = imagem.shape
+    altura, largura= imagem.shape
 
     linhas_permutadas = beach.chaotic_permutation(altura, seed)
     colunas_permutadas = beach.chaotic_permutation(largura, seed_b)
@@ -21,7 +21,7 @@ def imagem_permutada(imagem, seed, seed_b):
 
 
 def decript(imagem_permutada, linhas_permutadas_inversas, colunas_permutadas_inversas):
-    altura, largura, _ = imagem_permutada.shape
+    altura, largura = imagem_permutada.shape
 
      # Voltar à imagem original
     imagem_original = np.zeros_like(imagem_permutada)

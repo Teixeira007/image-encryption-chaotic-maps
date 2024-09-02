@@ -47,9 +47,9 @@ def main(X0, B0, size):
         
         num = 50
         X0, B0 = generate_sequence(X0, B0, num)
-        list.append(int(X0 * pow(2,56)) % 255)
+        list.append(int(X0 * pow(2,56)) % 256)
 
-    return list
+    return np.array(list, dtype=np.uint8)
 
 
 def keygen(x, size):
