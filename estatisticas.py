@@ -98,13 +98,22 @@ def correlacao_px_adjacente(image, height, width, title):
     plt.show()
     
     return correlation
-
+def calculate_entropy(image):
+    histogram = Counter(image.flatten())
+    total_pixels = image.size
+    entropy = 0
+    for count in histogram.values():
+        p = count / total_pixels
+        entropy -= p * np.log2(p)
+    return entropy
 # Exemplo de uso:
 # Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
-imagem_cifrada = cv2.imread('imagens/imagens_para_teste/lena_cifrado.bmp')
-image = cv2.imread("imagens/imagens_para_teste/lena_gray_512.tif")
+imagem_cifrada = cv2.imread('lena_cifrado__.bmp',0)
+print(imagem_cifrada.shape)
+image = cv2.imread("imagens/imagens_para_teste/lena_gray_512.tif",0)
 
 # Calcular a entropia
+# entropy = calculate_entropy(imagem_cifrada)
 entropy = calculate_entropy(imagem_cifrada)
 print(f"Entropia da imagem cifrada: {entropy}")
 
@@ -115,7 +124,7 @@ print(f"Maximum possible entropy: {max_entropy} bits per pixel")
 print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
 
 plot_histogram("imagens/imagens_para_teste/lena_gray_512.tif", 'Histograma da Imagem Original')
-plot_histogram("imagens/imagens_para_teste/lena_cifrado.bmp", 'Histograma da Imagem Criptografada')
+plot_histogram("lena_cifrado__.bmp", 'Histograma da Imagem Criptografada')
 
 
 original_image = np.array(image)
@@ -124,7 +133,7 @@ original_image = np.array(image)
 encrypted_image = np.array(imagem_cifrada)
 calculate_and_plot_correlation(original_image,encrypted_image)
 
-height, width, _ = image.shape
+height, width = image.shape
 correlacao_px_adjacente(original_image, height, width, "Correlação dos Pixels Adjacente- Imagem Original")
 correlacao_px_adjacente(encrypted_image, height, width, "Correlação dos Pixels Adjacente - Imagem Cifrada")
 

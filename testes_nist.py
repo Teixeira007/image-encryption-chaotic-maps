@@ -12,7 +12,7 @@ from testes_nist.CumulativeSum import CumulativeSums
 from testes_nist.RandomExcursions import RandomExcursions
 
 # Open Data File and read the binary data of e
-data_path = os.path.join(os.getcwd(), 'bit_sequence.txt')
+data_path = os.path.join(os.getcwd(), 'bit_sequence3.txt')
 handle = open(data_path)
 data_list = []
 

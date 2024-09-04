@@ -7,7 +7,7 @@ import cubo_rubik
 def main(bloco, random_X, random_B, k5, k6):
     height = bloco.shape[0]
     width = bloco.shape[1]
-    list_beach = beach.main(random_X, random_B, 1000)
+    list_beach = beach.main(random_X, random_B, 10000)
     z=0
     enimg = np.zeros(shape=[height, width], dtype=np.uint8)
     for i in range(height):
@@ -23,7 +23,8 @@ def  decript(imagem, random_X, random_B, linhas_permutadas_inversas, colunas_per
     imagem = cubo_rubik.decript(imagem, linhas_permutadas_inversas, colunas_permutadas_inversas)
     height = imagem.shape[0]
     width = imagem.shape[1]
-    list_beach = beach.main(random_X, random_B, 1000)
+    list_beach = beach.main(random_X, random_B, 10000)
+
     z=0
     decimg = np.zeros(shape=[height, width], dtype=np.uint8)
     for i in range(height):

@@ -1,38 +1,22 @@
 import cv2
+import numpy as np
 
 def uaci(original, cifrada):
-    # Assumimos que a imagem é em tons de cinza com apenas um canal.
-    height, width = original.shape
-    value = 0
-
-
-    for y in range(height):
-          for x in range(width):
-            value += abs(int(original[y, x]) - int(cifrada[y, x]))
-    
-    # Calculamos o valor médio para a imagem em tons de cinza
-    value = value * 100 / (width * height * 255)
-    return value
+    diff = np.abs(original.astype(np.int16) - cifrada.astype(np.int16))
+    uaci = np.mean(diff) / 255 * 100
+    return uaci
 
 
 def npcr(imagem_original, imagem_modificada):
-    # Assumimos que a imagem é RGB com três canais.
-    height, width, channels = imagem_original.shape
-    total_pixels = height * width * channels
-    pixels_alterados = 0
-    
-    for c in range(channels):
-        pixels_alterados += cv2.countNonZero(cv2.absdiff(imagem_original[:, :, c], imagem_modificada[:, :, c]))
-    
-    npcr_value = pixels_alterados / total_pixels * 100
-    return npcr_value
+    diff = imagem_original != imagem_modificada
+    npcr = np.sum(diff) / diff.size * 100
+    return npcr
 
 
-enc_original = cv2.imread('imagens/lena_cifrado.bmp')
-enc_cifrada = cv2.imread('modificada.bmp')
-imagem_cinza_original = cv2.cvtColor(enc_original, cv2.COLOR_BGR2GRAY)
-imagem_cinza_cifrada = cv2.cvtColor(enc_cifrada, cv2.COLOR_BGR2GRAY)
-resultado_uaci  = uaci(imagem_cinza_original, imagem_cinza_cifrada)
+enc_original = cv2.imread('lena_cifrado__.bmp', cv2.IMREAD_GRAYSCALE)
+enc_cifrada = cv2.imread('lena_cifrado_1pixel.bmp', cv2.IMREAD_GRAYSCALE)
+
+resultado_uaci  = uaci(enc_original, enc_cifrada)
 print('UACI: ', resultado_uaci)
 
 resultado_nrpc = npcr(enc_original, enc_cifrada)
