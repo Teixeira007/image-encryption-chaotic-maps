@@ -124,7 +124,7 @@ print(f"Maximum possible entropy: {max_entropy} bits per pixel")
 print(f"Entropy percentage: {(entropy / max_entropy) * 100:.2f}%")
 
 plot_histogram("imagens/imagens_para_teste/lena_gray_512.tif", 'Histograma da Imagem Original')
-plot_histogram("lena_cifrado__.bmp", 'Histograma da Imagem Criptografada')
+plot_histogram("lena_cifrado.bmp", 'Histograma da Imagem Criptografada')
 
 
 original_image = np.array(image)

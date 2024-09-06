@@ -13,7 +13,7 @@ def npcr(imagem_original, imagem_modificada):
     return npcr
 
 
-enc_original = cv2.imread('lena_cifrado__.bmp', cv2.IMREAD_GRAYSCALE)
+enc_original = cv2.imread('lena_cifrado.bmp', cv2.IMREAD_GRAYSCALE)
 enc_cifrada = cv2.imread('lena_cifrado_1pixel.bmp', cv2.IMREAD_GRAYSCALE)
 
 resultado_uaci  = uaci(enc_original, enc_cifrada)
