@@ -154,6 +154,24 @@ python main.py
 ```bash
 python testes_nist.py
 ```
+Caso queira usar outra imagem nos testes nist você tera que usar o comando 
+```bash
+python converter_imagem_para_bits.py
+```
+Passando a nova imagem, assim você terá um arquivo txt com a sequencia de bits da imagem, então você pode passar o caminho desse arquivo no testes_nist.py
+
+7. Para executar teste de entropia e correlação use o comando abaixo, se quiser testar com outras imagens será preciso alterar o codigo, passando as novas imagens
+```bash
+python estastiticas.py
+```
+8. Para executar testes de ataques diferencial como UACI e NPCR use o comando abaixo, se quiser testar com outras imagens será preciso alterar o codigo, passando as novas imagens
+```bash
+python ataques_diferencial.py
+```
+9. Para executar os testes de sensibilidade de chave como MSE e SSIM use o comando abaixo
+```bash
+python sensibilidade_chave.py
+```   
 7. Para realizar os testes nist foi utilizado os codigos do repositorio do NIST Randomness Test Suite
 ```bash
 git clone https://github.com/stevenang/randomness_testsuite.git
