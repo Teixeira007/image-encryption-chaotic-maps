@@ -31,7 +31,7 @@ def calculate_entropy_single_channel(channel):
     return entropy
 
 def plot_histogram(image_path, title):
-    image = cv2.imread(image_path)  
+    image = cv2.imread(image_path,0)  
     image_array = np.array(image)
 
     plt.figure(figsize=(4,4))
@@ -108,7 +108,7 @@ def calculate_entropy(image):
     return entropy
 # Exemplo de uso:
 # Carregar a imagem cifrada (supondo que 'imagem_cifrada' é um array numpy)
-imagem_cifrada = cv2.imread('lena_cifrado__.bmp',0)
+imagem_cifrada = cv2.imread('lena_cifrado.bmp',0)
 print(imagem_cifrada.shape)
 image = cv2.imread("imagens/imagens_para_teste/lena_gray_512.tif",0)
 
